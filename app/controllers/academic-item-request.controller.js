@@ -76,21 +76,7 @@ exports.updateStatus = (req, res) => {
         });
     });
 };
-async function addToUserInventory(requestId) {
-    const request = await db.academic_item_request.findOne({ where: { requestId: requestId } });
-    const { academicId, item_no, quantity } = request;
-  
-    // Check if the item already exists in the user's inventory
-    const inventoryItem = await db.user_inventory.findOne({ where: { academicId: academicId, item_no: item_no } });
-  
-    if (inventoryItem) {
-      // If item exists, update the quantity
-      await db.user_inventory.update({ quantity: db.sequelize.literal(`quantity + ${quantity}`) }, { where: { academicId: academicId, item_no: item_no } });
-    } else {
-      // If item does not exist, create a new inventory item
-      await db.user_inventory.create({ academicId: academicId, item_no: item_no, quantity: quantity });
-    }
-  }
+
 
 // Find item details by item_no
 exports.findItemDetails = (req, res) => {
