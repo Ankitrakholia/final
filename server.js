@@ -30,10 +30,10 @@ const statusUpdateRoutes = require('./app/routes/StatusUpdateRoutes');
 const userInventoryRoutes = require('./app/routes/user-inventory.routes');
 
 // Uncomment below lines to reset the database at every startup
- db.sequelize.sync({ force: true }).then(() => {
-   console.log("Drop and Resync Db");
-   initial();
- });
+ // db.sequelize.sync({ force: true }).then(() => {
+ //   console.log("Drop and Resync Db");
+ //   initial();
+ // });
 
 // Normal database sync without reset
 //db.sequelize.sync();
