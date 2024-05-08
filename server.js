@@ -30,17 +30,10 @@ const statusUpdateRoutes = require('./app/routes/StatusUpdateRoutes');
 const userInventoryRoutes = require('./app/routes/user-inventory.routes');
 
 // Uncomment below lines to reset the database at every startup
-<<<<<<< HEAD
 // db.sequelize.sync({ force: true }).then(() => {
 //   console.log("Drop and Resync Db");
 //   initial();
 // });
-=======
- // db.sequelize.sync({ force: true }).then(() => {
- //   console.log("Drop and Resync Db");
- //   initial();
- // });
->>>>>>> 910a99c7c67d6fe1f014013094d818a3c11e6142
 
 // Normal database sync without reset
 //db.sequelize.sync();
@@ -51,7 +44,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/api', statusUpdateRoutes);
-//app.use('/api/user-inventory', userInventoryRoutes);
+app.use('/api/user-inventory', userInventoryRoutes);
 
 // Routes
 require("./app/routes/auth.routes")(app);
@@ -151,10 +144,3 @@ function initial() {
   // sequelize.query("ALTER TABLE issued_stud_item_requests ADD FOREIGN KEY (requestId) REFERENCES reviewed_item_requests (requestId);");
   // sequelize.query("ALTER TABLE proceeded_stud_service_requests ADD FOREIGN KEY (requestId) REFERENCES reviewed_service_requests (requestId);");
 }
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> 910a99c7c67d6fe1f014013094d818a3c11e6142
