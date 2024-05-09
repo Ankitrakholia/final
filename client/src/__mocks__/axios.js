@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api/auth/";
+const API_URL = "https://final-nine-chi.vercel.app/api/auth/";
 
 export default {
     get: jest.fn(() => Promise.resolve({ data: {} })),
